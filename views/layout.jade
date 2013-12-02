@@ -1,7 +1,14 @@
 doctype 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+    head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+    body
+        block content
+
+        block footer
+            script(type='text/javascript', src='/javascripts/vendor/jquery.min.js')
+            script(type='text/javascript', src='/javascripts/vendor/Box2dWeb-2.1.a.3.js')
+            script(type='text/javascript', src='/javascripts/vendor/boxbox.js')
+            script(type='text/javascript', src='/javascripts/script.js')
+
