@@ -8,9 +8,18 @@ block content
                 | Text that you see if you don't support Canvas :(
 
         .column
-            .ui.segment Quiz
+            .ui.stacked.segment
+                .ui.header Quiz
+
                 .ui.form
-                    .ui.label#question Question
-                    input.ui.input#answer(placeholder='answer')
+                    .field
+                        .ui.huge.message#question Question
+
+                    .field
+                        .ui.massive.input
+                            input#answer(type='text', placeholder='answer')
 
                     .ui.submit.button Submit
+
+
+                .div#timer

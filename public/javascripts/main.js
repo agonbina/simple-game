@@ -5,12 +5,12 @@ require.config({
 		domReady: 'vendor/domReady',
 		boxbox: 'vendor/boxbox',
 		boxbox2d: 'vendor/Box2dWeb-2.1.a.3',
-		TaffyDB: 'vendor/taffy-min'
+		taffy: 'vendor/taffy-min'
 	}
 });
 
 // Bootstrap the application
-require(['jQuery', 'domReady', 'World', 'TaffyDB'], function ($, domReady, World) {
+require(['domReady', 'gameboard', 'World', 'data', 'player', 'timer', 'taffy'], function (domReady, GameBoard, World, data, Player, Timer) {
 
 
 	domReady(function () {
@@ -18,16 +18,12 @@ require(['jQuery', 'domReady', 'World', 'TaffyDB'], function ($, domReady, World
 		var canvasElem = document.getElementById("game");
 		World.setup(canvasElem);
 
+		var gameBoard = new GameBoard(),
+			questions = TAFFY(data.questions);
 
-		var players = TAFFY([
-			{ id: 1, name: 'Agon'},
-			{ id: 2, name: 'Agon'},
-			{ id: 3, name: 'Agon'},
-			{ id: 4, name: 'Agon'}
-		]);
-
-		var agon = players({id:2});
-		console.log(agon.name);
+		// Create the timer
+		var timerEl = $('#timer'),
+			timer = new Timer(timerEl);
 
 	});
 });
