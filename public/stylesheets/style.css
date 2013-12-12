@@ -6,3 +6,7 @@ body {
 a {
   color: #00B7FF;
 }
+
+#timer, #score {
+    font-size: 30px;
+}

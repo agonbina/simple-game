@@ -11,10 +11,10 @@ define('World', ['boxbox2d', 'boxbox'], function () {
 				image: "/images/icons/1_48.png",
 				imageStretchToFit: true,
 				density: 4,
-				x: 2
-				/*onKeyDown: function(e) {
+				x: 2,
+				onKeyDown: function(e) {
 				 this.applyImpulse(200, 60);
-				 }*/
+				 }
 			});
 
 			world.createEntity({
@@ -26,6 +26,19 @@ define('World', ['boxbox2d', 'boxbox'], function () {
 				height: .5,
 				y: 12
 			});
+
+            world.createEntity({
+                name: "wall",
+                shape: "square",
+                type: "static",
+                color: "rgb(0,100,0)",
+                width: 20,
+                height: .5,
+                y: 12,
+                x: 12,
+                rotation: 90
+            });
+
 		};
 
 	return {

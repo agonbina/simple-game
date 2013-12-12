@@ -5,16 +5,12 @@ define(function () {
 	 * @constructor
 	 */
 	var GameBoard = function () {
-		this.players = [];
-		this.levels = [];
-		this.currentLevel = 1;
+		this.questions = [];
+		this.currentQuestionId = 1;
 	};
 	GameBoard.prototype = {
-		addPlayer: function (player) {
-			this.players.push(player);
-		},
-		nextLevel: function () {
-			this.currentLevel += 1;
+		nextQuestion: function () {
+			this.currentQuestionId += 1;
 		},
 		checkAnswer: function (answer) {
 			var level = this.levels[this.currentLevel],

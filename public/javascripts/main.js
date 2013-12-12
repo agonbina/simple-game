@@ -21,9 +21,38 @@ require(['domReady', 'gameboard', 'World', 'data', 'player', 'timer', 'taffy'], 
 		var gameBoard = new GameBoard(),
 			questions = TAFFY(data.questions);
 
+        gameBoard.questions = questions;
+        var firstQuestion = questions().first();
+
 		// Create the timer
 		var timerEl = $('#timer'),
 			timer = new Timer(timerEl);
 
+        timer.start();
+
+        // Set up the form
+        var quizForm = $('#quiz-form').form({
+            answer: {
+                identifier: 'answer',
+                rules: [
+                    {
+                        type   : 'empty',
+                        prompt : 'Can\'t be empty'
+                    }
+                ]
+            }
+        }, {
+            debug: false,
+            inline: true,
+            onSuccess: submitAnswer
+        });
+
+        function submitAnswer() {
+            var answer = quizForm.form('get field', 'answer').val();
+            console.log(answer);
+        }
+
+        // Set up a question
+        $('#question').text(firstQuestion.title);
 	});
 });

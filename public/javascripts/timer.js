@@ -16,9 +16,11 @@ define(function () {
 
 			timer.secondsElapsed +=1;
 			timer.timerEl.text(timer.secondsElapsed);
+            $(timer.timerEl).transition('pulse');
 			return setInterval(function () {
 				timer.secondsElapsed += 1;
 				timer.timerEl.text(timer.secondsElapsed);
+                $(timer.timerEl).transition('pulse');
 			}, 1000);
 		},
 

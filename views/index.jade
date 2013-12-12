@@ -8,18 +8,27 @@ block content
                 | Text that you see if you don't support Canvas :(
 
         .column
+            .ui.raised.segment
+                .ui.header Game stats
+
+                .ui.two.column.grid
+                    .column
+                        .ui.label Elapsed Time:
+                        .ui.green.circular.huge.label#timer 0
+                    .column
+                        .ui.label Your score:
+                        .ui.red.circular.huge.label#score 0
+
+
             .ui.stacked.segment
                 .ui.header Quiz
 
-                .ui.form
+                .ui.form#quiz-form
                     .field
                         .ui.huge.message#question Question
 
                     .field
                         .ui.massive.input
-                            input#answer(type='text', placeholder='answer')
+                            input#answer(type='text', id='answer',placeholder='answer')
 
                     .ui.submit.button Submit
-
-
-                .div#timer
